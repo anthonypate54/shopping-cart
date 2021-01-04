@@ -30,7 +30,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 const appRoutes: Routes = [
     { path: '', component: ProductsComponent },
@@ -65,7 +66,9 @@ const appRoutes: Routes = [
   declarations: [
     AdminProductsComponent,
     ProductsComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   imports: [
     CommonModule,
@@ -79,7 +82,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-
+    
     RouterModule.forRoot(appRoutes),
    ],
   exports: [RouterModule]
