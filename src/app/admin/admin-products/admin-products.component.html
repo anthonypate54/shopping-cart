@@ -1,0 +1,46 @@
+<p>
+    <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
+</p>
+
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
+    <div class="example-container mat-elevation-z8">
+
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+    </ng-container>
+
+    <!-- Edit Column -->
+    <ng-container matColumnDef="action" >
+      <mat-header-cell *matHeaderCellDef > Action </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a [routerLink] ="['/admin/products/', element.key]" routerLinkActive="router-link-active" >Edit</a>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <div class="no-results" [style.display]="dataLength == 0 ? '' : 'none'">
+    No results
+  </div>
+  <div class="custom-style-paginator-select">
+    <mat-paginator #paginator
+    [length]="5"
+    [pageIndex]="0"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+    </div>
+</div>

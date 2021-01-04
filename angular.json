@@ -12,7 +12,16 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {
+
+          "options": {           
+              "allowedCommonJsDependencies" : [
+                "ng2-validation",
+                "zone.js/dist/zone-error",
+                "babel-runtime/helpers/extends",
+                "babel-runtime/helpers/slicedToArray",
+                "babel-runtime/helpers/createClass",
+                "babel-runtime/core-js/get-iterator"
+            ],     
             "outputPath": "dist/shopping-cart",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -24,7 +33,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css",
+              "../node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": []
           },
@@ -61,11 +72,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "shopping-cart:build"
+            "browserTarget": "shopping-cart:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "shopping-cart:build:production"
+              "browserTarget": "shopping-cart:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             }
           }
         },
