@@ -9,21 +9,19 @@ import { map, tap } from 'rxjs/operators';
 export class CategoryService {
     catRef: AngularFireList<any>;
     cat$: Observable<any[]>;
-
-    courseRef: AngularFireList<any>;
-    courses$: Observable<any[]>;
   
     constructor(private db: AngularFireDatabase) {
-      this.courseRef = db.list('/categories');
-      this.courses$ = this.courseRef.snapshotChanges().pipe(
+    
+      this.catRef = db.list('/categories');
+       this.cat$ = this.catRef.snapshotChanges().pipe(
           map(changes => {
             return changes.map(c => ({ key: c.payload.key, ...c.payload.val() 
       }));
      }));
     }
      
-    getCategories() {
-         return this.courses$;
+    getAll() {
+         return this.cat$;
       }
 
 }

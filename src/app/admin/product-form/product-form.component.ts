@@ -23,7 +23,7 @@ export class ProductFormComponent implements OnInit {
          private productService: ProductService,
          db: AngularFireDatabase) { 
 
-        this.categories$ = categoryService.getCategories();
+        this.categories$ = categoryService.getAll();
         this.id = this.route.snapshot.paramMap.get('id');
          if(this.id) {
 

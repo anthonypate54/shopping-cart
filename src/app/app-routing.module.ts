@@ -33,7 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: '', component: ProductsComponent },
     { path: 'shopping-cart', component: ShoppingCartComponent },
     { path: 'login', component: LoginComponent },
  
