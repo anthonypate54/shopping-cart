@@ -29,7 +29,7 @@ export class ProductService {
        // return this.db.list('/products');
           return this.itemsRef.snapshotChanges().pipe(
              map(res => 
-                 res.map(c => ({ key: c.key, ...c.payload.val() })
+                 res.map(c => ({ key: c.key,  ...c.payload.val() })
                  )
              )
          )

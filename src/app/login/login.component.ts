@@ -14,6 +14,7 @@ export class LoginComponent {
     }
 
     login() {
+        console.log('AT LOGIN COMPONENT');
         this.authService.login();
     }
  }

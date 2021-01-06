@@ -16,7 +16,6 @@ import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './auth/auth.service';
 import { UserService } from './user.service';
-import { NavbarComponent } from './navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { CategoryService } from './category.service';
@@ -24,11 +23,13 @@ import { ProductService } from './product.service';
 import { CustomFormsModule } from 'ng2-validation';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ShoppingCartService } from './shopping-cart.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
 
     ],
   imports: [
@@ -52,6 +53,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
         UserService,
         CategoryService,
         ProductService,
+        ShoppingCartService
      ],
   bootstrap: [AppComponent]
 })
