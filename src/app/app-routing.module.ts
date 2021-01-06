@@ -30,6 +30,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { ShoppingCart } from './models/shopping-cart';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 
 
 const appRoutes: Routes = [
@@ -67,10 +70,13 @@ const appRoutes: Routes = [
     ProductsComponent,
     ProductFormComponent,
     ProductFilterComponent,
-    ProductCardComponent
-
+    ProductCardComponent,
+    ShoppingCartComponent,
+    ProductQuantityComponent,
   ],
   imports: [
+    BrowserModule,
+
     CommonModule,
     RouterModule,
     FormsModule,

@@ -34,6 +34,7 @@ import { ShoppingCartService } from './shopping-cart.service';
     ],
   imports: [
     BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
