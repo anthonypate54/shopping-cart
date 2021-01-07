@@ -6,12 +6,11 @@ export class ShoppingCartItem {
     title: string;
     imageUrl: string;
     price: number;
+    quantity: number;
 
-    constructor(public product: Product, public quantity: number) {
-        this.product = product;
-        this.quantity = quantity;
-    }
+    constructor() {}
+    
     get totalPrice() {
-        return this.product.price * this.quantity;
+        return this.price * this.quantity;
     }
 }

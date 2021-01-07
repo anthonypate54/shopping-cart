@@ -39,23 +39,35 @@ export class ShoppingCartService {
         return result.key;
     }
 
-    private async updateItemQuantity(product: Product, change: number) {
+    private async updateItem(product: Product, change: number) {
         let cartId = await this.getOrCreateCartId();
         let item$ = this.getItem(cartId, product.key); 
         item$.valueChanges().pipe(
             take(1)).subscribe((item: any) => {
+                console.log("item = ", item);
             if(item)
-                item$.update({ quantity: item.quantity + change });
-            else
-                item$.set({ product, quantity: 1 });
+                item$.update({ 
+                    title: product.title,
+                    imageUrl: product.imageUrl,
+                    price: product.price,    
+                    quantity: item.quantity + change 
+                });
+             else {
+                 item$.set({ 
+                    title: product.title,
+                    imageUrl: product.imageUrl,
+                    price: product.price,    
+                    quantity: 1 
+                });
+            }
          });
     }
 
     async addToCart(product: Product) {
-        this.updateItemQuantity(product, 1);
+        this.updateItem(product, 1);
     }
 
     async removeFromCart(product: Product) {
-        this.updateItemQuantity(product, -1);
+        this.updateItem(product, -1);
      }
 }
