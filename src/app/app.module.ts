@@ -25,13 +25,16 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ShoppingCartService } from './shopping-cart.service';
+import { OrderService } from './order.service';
+import { OrderListComponent } from './order-list/order-list.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-
-    ],
+    OrderListComponent,
+     ],
   imports: [
     BrowserModule,
     CommonModule,
@@ -54,7 +57,8 @@ import { ShoppingCartService } from './shopping-cart.service';
         UserService,
         CategoryService,
         ProductService,
-        ShoppingCartService
+        ShoppingCartService,
+        OrderService
      ],
   bootstrap: [AppComponent]
 })

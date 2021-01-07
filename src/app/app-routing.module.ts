@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckOutComponent } from './check-out/check-out.component';
@@ -33,7 +32,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ShoppingCart } from './models/shopping-cart';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
-
+import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
+import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 
 const appRoutes: Routes = [
     { path: '', component: ProductsComponent },
@@ -41,7 +41,7 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
  
     { path: 'check-out', component: CheckOutComponent, canActivate: [ AuthGuard ] },
-    { path: 'order-success', component: OrderSuccessComponent, canActivate: [ AuthGuard ] },
+    { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [ AuthGuard ] },
     { path: 'my/orders', component: MyOrdersComponent, canActivate: [ AuthGuard ] },
     
     {   path: 'admin/products/new', 
@@ -73,6 +73,12 @@ const appRoutes: Routes = [
     ProductCardComponent,
     ShoppingCartComponent,
     ProductQuantityComponent,
+    CheckOutComponent,
+    ShoppingCartSummaryComponent,
+    ShippingFormComponent,
+    AdminOrdersComponent,
+    MyOrdersComponent
+
   ],
   imports: [
     BrowserModule,

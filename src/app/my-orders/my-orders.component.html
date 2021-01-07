@@ -1,2 +1,35 @@
-<p>my-orders component</p>
-<p>My Orders</p>
+
+<div style="margin-top: 85px">
+    <h1>
+        Orders
+    </h1>
+    <div class="row col-10" *ngIf="orders$ | async as order">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Customer</th>
+                    <th class="text-center" style="width: 330px">Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of order">
+                     <td>{{ item.shipping.name }}</td>
+                    <td class="text-center">
+                        {{ item.datePlaced }}
+                     </td>
+                    <td>
+                        <a routerLink="/">View</a>
+                    </td>
+                </tr>
+            </tbody>
+         
+        </table>
+      </div>
+</div>
+
+
+
